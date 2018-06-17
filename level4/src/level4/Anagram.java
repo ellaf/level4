@@ -24,13 +24,20 @@ public static void main(String[] args) {
 		
 		String line = br.readLine();
 		while(line != null){
-			//System.out.println(line);
-			line = br.readLine();
+			//System.out.println(running.alphabetize(line));
+			String newLine = running.alphabetize(line);
+			//System.out.println(newLine);
+		if(newLine.equals(alphaWord)) {
+			matching.add(line);
+		}else {
+			
 		}
-		System.out.println(running.alphabetize(line));
+	
+
+			line = br.readLine();
+		}		
 		
-		
-		br.close();
+				br.close();
 	} catch (FileNotFoundException e1) {
 		// TODO Auto-generated catch block
 		e1.printStackTrace();
@@ -38,16 +45,16 @@ public static void main(String[] args) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-	
-	System.out.println(matching);
+		System.out.println(matching);
+//System.out.println(matching);
 	
 	
 }
 
 public String alphabetize(String a) {
-	
-for (int i = 0; i < a.length(); i++) {
-String letter = "" + a.charAt(i);
+String b = a.toLowerCase();
+for (int i = 0; i < b.length(); i++) {
+String letter = "" + b.charAt(i);
 	organizer.add(letter);
 }
 for (int j = 0; j < organizer.size(); j++) {
@@ -62,13 +69,15 @@ organizer.add(i+1, first);
 }
 }
 }
-System.out.println(organizer);
+//System.out.println(organizer);
 String alpha = "";
 for (int i = 0; i < organizer.size(); i++) {
 alpha += organizer.get(i);
 }
-System.out.println(alpha);
-return alpha;
+String alphaB = alpha;
+organizer.clear();
+return alphaB;
+
 }
 
 }
